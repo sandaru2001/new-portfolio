@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 :root {
     --bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
@@ -36,7 +40,29 @@ ul {
     display: block;
     padding: 0 30px;
     opacity: 1;
+    position: relative;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    transition: all 0.3s ease;
 }
+/*.section.back-section {
+    z-index: 1;
+}
+.section.active {
+    z-index: 2;
+    opacity: 1;
+}*/
+/*@keyframes slideSection {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}*/
 .hidden {
     display: none !important;
 }
@@ -124,6 +150,7 @@ ul {
     display: flex;
     justify-content: center;align-items: center;
     z-index: 10;
+    transition: all 0.3s ease;
 }
 .aside .logo {
     position: absolute;
@@ -170,12 +197,13 @@ ul {
     cursor: pointer;
     position: fixed;
     left: 300px;
-    top: 200px;
+    top: 20px;
     border-radius: 5px;
     background: var(--bg-black-100);
     display: none;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 .aside .nav-toggler span {
     height: 2px;
@@ -183,6 +211,9 @@ ul {
     background: var(--skin-color);
     display: inline-block;
     position: relative;
+}
+.aside .nav-toggler.open span {
+    background-color: transparent;
 }
 .aside .nav-toggler span::before {
     content: '';
@@ -193,6 +224,10 @@ ul {
     top: -6px;
     left: 0;
 }
+.aside .nav-toggler.open span::before {
+    transform: rotate(45deg);
+    top: 0;
+}
 .aside .nav-toggler span::after {
     content: '';
     height: 2px;
@@ -201,6 +236,10 @@ ul {
     position: absolute;
     top: 6px;
     left: 0;
+}
+.aside .nav-toggler.open span::after {
+    transform: rotate(-45deg);
+    top: 0;
 }
 .aside .nav {
     margin-top: 50px;
@@ -441,6 +480,7 @@ h3.my-profession {
     max-width: 40%;
     text-align: center;
     position: relative;
+    top: 30px;
 }
 .about-img::after {
     content: '';
@@ -460,7 +500,7 @@ h3.my-profession {
 }
 .about-img img {
     margin-bottom: 30px;
-    border-radius: 5px;
+    border-radius: 100%;
     height: 400px;
 }
 
@@ -527,7 +567,7 @@ h3.my-profession {
 }
 
 /*skills*/
-.skills .skill-item {
+/*.skills .skill-item {
     flex: 0 0 100%;
     max-width: 100%;
 }
@@ -563,6 +603,40 @@ h3.my-profession {
     top: -40px;
     font-weight: 400;
     line-height: 40px;
+}*/
+.skills .skill-item {
+    margin-bottom: 30px;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+.skills .skill-item .skill-item-inner {
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    padding: 30px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.skills .skill-item .skill-item-inner h4 {
+    color: var(--text-black-900);
+}
+.skills .skill-item .skill-item-inner p {
+    color: var(--text-black-700);
+}
+.skills .skill-item .skill-item-inner:hover {
+    box-shadow: 0 0 20px var(--skin-color);
+}
+.skills .skill-item .skill-item-inner .skill-img:nth-child(2) {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+    position: relative;
+    margin-left: 80px;
+}
+.skills .skill-item .skill-item-inner .skill-img img {
+    margin: auto;
+    border-radius: 5px;
+    height: 150px;
 }
 
 /*Project*/
@@ -579,8 +653,14 @@ h3.my-profession {
     text-align: center;
     transition: all 0.3s ease;
 }
+.project .project-item .project-item-inner h4 {
+    color: var(--text-black-900);
+}
+.project .project-item .project-item-inner p {
+    color: var(--text-black-700);
+}
 .project .project-item .project-item-inner:hover {
-    box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
+    box-shadow: 0 0 20px var(--skin-color);
 }
 /*.project .project-item .project-item-inner .icon {
     height: 60px;
@@ -619,6 +699,77 @@ h3.my-profession {
     margin: auto;
     border-radius: 5px;
     height: 150px;
+}
+
+/*assignment*/
+.assignment .assignment-item {
+    margin-bottom: 30px;
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+.assignment .assignment-item .assignment-item-inner {
+    background-color: var(--bg-black-100);
+    border: 1px solid var(--bg-black-50);
+    border-radius: 10px;
+    padding: 30px 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+.assignment .assignment-item .assignment-item-inner:hover {
+    box-shadow: 0 0 20px var(--skin-color);
+}
+/*.assignment .assignment-item .assignment-item-inner .assignment-img:nth-child(2) {
+    flex: 0 0 40%;
+    max-width: 40%;
+    text-align: center;
+    position: relative;
+    margin-left: 80px;
+}*/
+/*.assignment .assignment-item .assignment-item-inner .assignment-logo .icon {
+    position: relative;
+    right: 100px;
+    top: 24px;
+    display: inline-block;
+}
+.assignment .assignment-item .assignment-item-inner .assignment-logo .icon i {
+    margin-right: 40px;
+    font-size: 34px;
+    color: var(--skin-color);
+}*/
+.assignment .assignment-item .assignment-item-inner .icon:first-child {
+    position: relative;
+    margin-bottom: 50px;
+    right: 0;
+    top: 12px;
+    display: inline-block;
+}
+.assignment .assignment-item .assignment-item-inner .icon:first-child i {
+    font-size: 34px;
+    color: var(--skin-color);
+}
+.assignment .assignment-item .assignment-item-inner h4 {
+    color: var(--text-black-900);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.assignment .assignment-item .assignment-item-inner p {
+    color: var(--text-black-700);
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.assignment .assignment-item .assignment-item-inner a {
+    position: relative;
+    margin-right: 80px;
+}
+.assignment .assignment-item .assignment-item-inner .icon {
+    position: relative;
+    right: 40px;
+    top: 12px;
+    display: inline-block;
+}
+.assignment .assignment-item .assignment-item-inner .icon i {
+    font-size: 34px;
+    color: var(--skin-color);
 }
 
 /*gallery*/
@@ -735,6 +886,22 @@ h3.my-profession {
     .main-content {
         padding-left: 0;
     }
+    .aside.open {
+        left: 0;
+    }
+    .aside .nav-toggler {
+        display: flex;
+        left: 30px;
+    }
+    .aside .nav-toggler.open {
+        left: 300px;
+    }
+    /*.section {
+        left: 0;
+    }*/
+    /*.section.open {
+        left: 270px;
+    }*/
     .about .about-content .personal-info .info-item p span {
         display: block;
         margin-left: 0;
@@ -743,7 +910,7 @@ h3.my-profession {
 
 @media (max-width: 991px) {
     .contact .contact-info-item,
-    .assignment,
+    .assignment .assignment-item,
     .project .project-item {
         flex: 0 0 50%;
         max-width: 50%;
@@ -753,7 +920,36 @@ h3.my-profession {
         max-width: 100%;
     }
     .home .home-img {
-        display: block;
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        bottom: 90px;
+        left: 400px;
+    }
+    .home-img::after {
+        content: '';
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        right: -20px;
+        bottom: -40px;
+    }
+    .home-img::before {
+        content: '';
+        position: absolute;
+        height: 80px;
+        width: 80px;
+        left: -20px;
+        top: -40px;
+    }
+    .home .home-img img {
+        margin: auto;
+        border-radius: 5px;
+        height: 350px;
+    }
+    .about .about-img {
+        display: none;
     }
 }
 
@@ -761,10 +957,81 @@ h3.my-profession {
     .contact .contact-form .col-6,
     .contact .contact-info-item,
     .project .project-item,
+    .assignment .assignment-item,
     .education,
-    .skill .skills,
+    .skills .skill-item,
     .about .about-content .personal-info {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+    .home .home-img {
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        left: 200px;
+    }
+    .home .home-img img {
+        margin: auto;
+        border-radius: 50px;
+        height: 270px;
+    }
+    .home-img::after {
+        display: none;
+    }
+    .home-img::before {
+        display: none;
+    }
+    .about .about-img {
+        display: none;
+    }
+    .wrapper .icon {
+        margin-right: 37px;
+    }
+    .gallery-item:hover {
+        scale: 1.20;
+    }
+}
+
+@media (max-width: 375px) {
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .project .project-item,
+    .assignment .assignment-item,
+    .education,
+    .skills .skill-item,
+    .about .about-content .personal-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img {
+        display: none;
+    }
+    .about .about-img {
+        display: none;
+    }
+    .wrapper .icon {
+        margin-right: 33px;
+    }
+    .gallery-item:hover {
+        scale: 1.05%;
+    }
+    .home .home-img {
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        left: 200px;
+    }
+    .home .home-img img {
+        margin: auto;
+        border-radius: 50px;
+        height: 270px;
+    }
+    .home-img::after {
+        display: none;
+    }
+    .home-img::before {
+        display: none;
     }
 }
