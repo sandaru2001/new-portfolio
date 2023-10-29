@@ -3,18 +3,24 @@ html{
 }
 
 :root {
-    --bg-black-900: #f2f2fc;
+    /*--bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
     --bg-black-50: #e8dfec;
     --text-black-900: #302e4d;
-    --text-black-700: #504e70;
-}
-body.dark {
+    --text-black-700: #504e70;*/
+
     --bg-black-900: #151515;
     --bg-black-100: #222222;
     --bg-black-50: #393939;
     --text-black-900: #ffffff;
     --text-black-700: #e9e9e9;
+}
+body.dark {
+    /*--bg-black-900: #151515;
+    --bg-black-100: #222222;
+    --bg-black-50: #393939;
+    --text-black-900: #ffffff;
+    --text-black-700: #e9e9e9;*/
 }
 body {
     line-height: 1.5;
@@ -160,8 +166,7 @@ ul {
 }
 .aside .logo img {
     position: relative;
-    margin-bottom: 100px;
-    height: 200px;
+    height: 150px;
     z-index: -9999;
 }
 .aside .logo a span {
@@ -240,7 +245,7 @@ ul {
     top: 0;
 }
 .aside .nav {
-    margin-top: 50px;
+    margin-top: 160px;
 }
 .aside .nav li {
     margin-bottom: 20px;
