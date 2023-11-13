@@ -265,6 +265,8 @@ ul {
 .aside .nav li a {
     margin-right: 15px;
 }
+
+
 /*home*/
 .home {
     min-height: 100vh;
@@ -703,6 +705,10 @@ h3.my-profession {
 }
 
 /*assignment*/
+#assignment{
+    overflow-x: hidden;
+}
+
 .assignment .assignment-item {
     margin-bottom: 30px;
     flex: 0 0 33.33%;
@@ -960,7 +966,7 @@ h3.my-profession {
     }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 771px) {
     .contact .contact-form .col-6,
     .contact .contact-info-item,
     .project .project-item,
@@ -997,6 +1003,55 @@ h3.my-profession {
     }
     .gallery-item:hover {
         scale: 1.20;
+    }
+}
+
+@media (max-width: 500px) {
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .project .project-item,
+    .assignment .assignment-item,
+    .education,
+    .skill .skill-item,
+    .about .about-content .personal-info {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    .home .home-img {
+        display: none;
+    }
+    .about .about-img {
+        display: none;
+    }
+    .wrapper .icon {
+        margin-right: 8px;
+    }
+    .gallery-item:hover {
+        scale: 1.05%;
+    }
+    .home .home-img {
+        flex: 0 0 40%;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        left: 200px;
+    }
+    .home .home-img img {
+        margin: auto;
+        border-radius: 50px;
+        height: 270px;
+    }
+    .home-img::after {
+        display: none;
+    }
+    .home-img::before {
+        display: none;
+    }
+    .project .project-item .project-item-inner .project-img img {
+        position: relative;
+        margin: auto;
+        border-radius: 5px;
+        height: 100px;
     }
 }
 
